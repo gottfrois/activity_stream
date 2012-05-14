@@ -1,0 +1,80 @@
+// Place all the styles related to the Activities controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.activity {
+  border-bottom: 1px solid #F0F1F2;
+  margin-bottom: 10px;
+  padding-bottom: 15px;
+  min-height: 58px;
+  position: relative;
+}
+
+.activity form {
+  margin: 0;
+  padding: 0;
+}
+
+.activity input, textarea, select, .uneditable-input {
+  margin: 0;
+  width: 448px;
+}
+
+.activity .avatar {
+  float: left;
+  height: 48px;
+  margin-right: 10px;
+  width: 48px;
+}
+
+.activity .content {
+  float: left;
+}
+
+.activity .content .metadata {
+  color: #B3B3B3;
+  line-height: 18px;
+  margin:0;
+  padding:0;
+}
+
+.activity ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.activity ul li {
+  padding: 5px;
+  margin: 2px 0 0 0;
+}
+
+.activity .comments .actor {
+  float:left;
+  margin:0 8px 0 0;
+}
+
+.activity .comments .actor img {
+  width:32px;
+  height:32px;
+  display:block;
+}
+
+.activity .comments .body {
+  padding:1px 0 0 0;
+  display: table-cell;
+}
+
+#actor {
+  float:left;
+  width:300px;
+}
+
+#verb {
+  float:left;
+  width:300px;
+}
+
+#object {
+  float:left;
+  width:300px;
+}

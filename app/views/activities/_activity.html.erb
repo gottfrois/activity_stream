@@ -1,0 +1,10 @@
+<div class="activity">
+  <div class="avatar"><%= link_to(gravatar_image_tag(activity.actor.email, { :gravatar => { :size => 48 } }), user_path(activity.actor), :class => 'actor') %></div>
+  <div class="content">
+    <h4><%= link_to activity.actor.name, user_path(activity.actor) %> <%= activity.verb %> <%= link_to activity.object.name, user_path(activity.object) %></h4>
+
+    <div class="metadata"><%= metadata(activity) %></div>
+
+  </div>
+  <div style="clear: both;"></div>
+</div>

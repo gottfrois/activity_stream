@@ -1,0 +1,11 @@
+<%= form_for NewsFeed::Activity.new, :html => {:class => "well"}, :remote => true do |f| %>
+
+  <div id="actor">Actor: <%= collection_select :actor, :actor_id, User.all, :id, :name %></div>
+
+  <div id="verb">Verb: <%= f.text_field :verb, :placeholder => "Verb" %></div>
+
+  <div id="object">Object: <%= collection_select :object, :object_id, User.all, :id, :name %></div>
+
+  <%= f.submit :create, :class => 'btn btn-success' %>
+
+<% end %>

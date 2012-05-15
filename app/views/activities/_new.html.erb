@@ -1,4 +1,4 @@
-<%= form_for NewsFeed::Activity.new, :html => {:class => "well"}, :remote => true do |f| %>
+<%= form_for Activity.new, :html => {:class => "well"}, :remote => true do |f| %>
 
   <div id="actor">Actor: <%= collection_select :actor, :actor_id, User.all, :id, :name %></div>
 

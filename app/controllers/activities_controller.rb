@@ -1,18 +1,20 @@
 class ActivitiesController < ApplicationController
+  before_filter :authenticate_user!, except: :index
+
   def index
-    @activities = NewsFeed::Activity.all
+    @activities = Activity.all
   end
 
   def show
-    @activity = NewsFeed::Activity.find(params[:id])
+    @activity = Activity.find(params[:id])
   end
 
   def new
-    @activity = NewsFeed::Activity.new
+    @activity = Activity.new
   end
 
   def create
-    @activity = NewsFeed::Activity.new(params[:news_feed_activity])
+    @activity = Activity.new(params[:activity])
     @activity.actor = User.find(params[:actor][:actor_id])
     @activity.object = User.find(params[:object][:object_id])
     if @activity.save!
@@ -23,7 +25,7 @@ class ActivitiesController < ApplicationController
   end
 
   def delete
-    NewsFeed::Activity.find(params[:id]).delete
+    Activity.find(params[:id]).delete
     redirect_to root_path, success: "Activity deleted!"
   end
 end

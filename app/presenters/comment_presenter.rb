@@ -12,7 +12,6 @@ class CommentPresenter < BasePresenter
   #
   # @return [String]
   def metadata(*args)
-    return '' unless user_signed_in?
     options = args.extract_options!
     options[:date]        ||= true
     options[:comment]     ||= true
@@ -22,9 +21,9 @@ class CommentPresenter < BasePresenter
     out = []
     out << "#{time_ago_in_words(comment.created_at).capitalize} ago"                                if options[:date]        && comment.respond_to?(:created_at)
     out << link_to('Comment', '#')                                                                  if options[:comment]     && comment.respond_to?(:comments)
-    out << link_to('Like', comment_likes_path(comment),    :method => 'post')                       if options[:like]        && comment.respond_to?(:vote)       && !current_user.voted?(comment)
-    out << link_to('Unlike', comment_likes_path(comment),  :method => 'destroy')                    if options[:like]        && comment.respond_to?(:vote)       && current_user.voted?(comment)
-    out << link_to(content_tag(:i, '', :class => 'icon-heart') + " #{comment.up_votes_count}", '#') if options[:like_count]  && comment.respond_to?(:vote)       && comment.up_votes_count > 0
+    # out << link_to('Like', comment_likes_path(comment),    :method => 'post')                       if options[:like]        && comment.respond_to?(:vote)       && !current_user.voted?(comment)
+    # out << link_to('Unlike', comment_likes_path(comment),  :method => 'destroy')                    if options[:like]        && comment.respond_to?(:vote)       && current_user.voted?(comment)
+    # out << link_to(content_tag(:i, '', :class => 'icon-heart') + " #{comment.up_votes_count}", '#') if options[:like_count]  && comment.respond_to?(:vote)       && comment.up_votes_count > 0
 
     return raw out.join(" &middot; ")
   end
@@ -34,6 +33,6 @@ class CommentPresenter < BasePresenter
   end
 
   def deletable(parent = nil)
-    link_to raw('&times;'), [parent, comment], :class => "close", :method => 'delete', :confirm => 'Are you sure you want to permanently delete this comment?'
+    link_to raw('&times;'), [parent, comment], :class => 'close', :method => 'delete', :confirm => 'Are you sure you want to permanently delete this comment?'
   end
 end

@@ -1,4 +1,4 @@
-class NewsFeed::Target
+class Target
   include Mongoid::Document
 
   field :url, type: String

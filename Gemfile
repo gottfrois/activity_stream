@@ -17,5 +17,5 @@ end
 gem 'jquery-rails'
 gem 'nifty-generators', group: :development
 gem 'gravatar_image_tag'
-gem 'resque'
 gem 'devise'
+gem 'voteable_mongo'

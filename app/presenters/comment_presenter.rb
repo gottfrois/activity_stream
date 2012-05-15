@@ -33,6 +33,6 @@ class CommentPresenter < BasePresenter
   end
 
   def deletable(parent = nil)
-    link_to raw('&times;'), [parent, comment], :class => 'close', :method => 'delete', :confirm => 'Are you sure you want to permanently delete this comment?'
+    link_to raw('&times;'), [parent, comment], :class => 'close', :method => 'delete', :confirm => 'Are you sure you want to permanently delete this comment?' if comment.author?(current_user)
   end
 end

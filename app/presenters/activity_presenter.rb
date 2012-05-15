@@ -30,7 +30,7 @@ class ActivityPresenter < BasePresenter
   def text
     case activity.verb
     when 'connected'
-      out = %(#{raw link_to(activity.actor.name, activity.actor)} is now connected to #{raw link_to(activity.object.name, activity.object)})
+      out = %(#{raw link_to(activity.actor.name, activity.actor)} is now connected to #{raw link_to(activity.subject.name, activity.subject)})
     else
       out = %(#{activity.verb})
     end

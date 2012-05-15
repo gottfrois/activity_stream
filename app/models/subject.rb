@@ -1,7 +1,7 @@
-class Object
+class Subject
   include Mongoid::Document
 
   field :url, type: String
 
-  embedded_in :objectable, polymorphic: true
+  embedded_in :subjectable, polymorphic: true
 end

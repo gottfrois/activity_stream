@@ -15,7 +15,7 @@ Here are a quick list of the functionalities I have implemented in this
 news feed:
 
 1. Classic polymorphic activities (actor, object, target and verb)
-    Ex: Pierre-Louis Gottfrois is now connected to John Smith
+    Pierre-Louis Gottfrois is now connected to John Smith
     
 2. Embedded comments (can also be added to other models)
 

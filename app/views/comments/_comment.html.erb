@@ -1,0 +1,15 @@
+<% present comment do |comment_presenter| %>
+  <li class="well">
+    <%= comment_presenter.deletable item %>
+
+    <% present comment.user do |user_presenter| %>
+      <%= user_presenter.avatar :size => 32 %>
+    <% end %>
+
+    <div class="body">
+      <%= comment_presenter.author %>
+      <span><%= comment_presenter.text %></span>
+      <div class="metadata"><%= comment_presenter.metadata :like_count => true %></div>
+    </div>
+  </li>
+<% end %>

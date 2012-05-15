@@ -1,0 +1,11 @@
+<ul class="comments">
+  <% unless item.comments.empty? %>
+    <%= aggregate(item) %>
+  <% end %>
+</ul>
+
+<li class="well add_comment">
+  <%= form_for [item, Comment.new] do |f| %>
+    <%= f.text_field :body, :placeholder => "Write a comment..." %>
+  <% end %>
+</li>

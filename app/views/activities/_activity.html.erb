@@ -1,10 +1,19 @@
-<div class="activity">
-  <div class="avatar"><%= link_to(gravatar_image_tag(activity.actor.email, { :gravatar => { :size => 48 } }), user_path(activity.actor), :class => 'actor') %></div>
-  <div class="content">
-    <h4><%= link_to activity.actor.name, user_path(activity.actor) %> <%= activity.verb %> <%= link_to activity.object.name, user_path(activity.object) %></h4>
+<% present activity, ActivityPresenter do |activity_presenter| %>
+  <div class="activity">
+    <% present activity.actor do |user_presenter| %>
+      <div class="avatar"><%= user_presenter.avatar %></div>
+      <div class="content">
+        <h4><%= activity_presenter.text %></h4>
 
-    <div class="metadata"><%= metadata(activity) %></div>
+        <div class="metadata"><%= activity_presenter.metadata %></div>
 
-  </div>
-  <div style="clear: both;"></div>
-</div>
+        <ul class="list span5">
+          <%# render 'shared/likes', :item => activity %>
+          <% render 'shared/comments', :item => activity %>
+        </ul>
+
+      </div>
+      <div style="clear: both;"></div>
+    </div>
+    <% end %>
+<% end %>

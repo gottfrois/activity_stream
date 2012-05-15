@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= content_for?(:title) ? yield(:title) : "Untitled" %></title>
+    <title>Activity Stream</title>
     <%= stylesheet_link_tag "application" %>
     <%= csrf_meta_tag %>
     <%= yield(:head) %>
@@ -11,7 +11,6 @@
       <% flash.each do |name, msg| %>
         <%= content_tag :div, msg, :id => "flash_#{name}" %>
       <% end %>
-      <%= content_tag :h1, yield(:title) if show_title? %>
       <%= yield %>
     </div>
   </body>

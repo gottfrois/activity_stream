@@ -12,7 +12,7 @@ class User
   before_validation :choose_email
 
   def name
-    first_name + ' ' + last_name
+    [self.first_name, self.last_name].join(' ')
   end
 
   def activities

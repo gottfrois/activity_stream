@@ -1,10 +1,13 @@
 class Comment
   include Mongoid::Document
   include Mongoid::Timestamps
+  # include Mongo::Voteable
+
+  # voteable self, up: +1, down: -1
 
   field :body, type: String
 
-  embeds_one  :author,    class_name: 'User'
+  embeds_one  :author, class_name: 'User'
   embedded_in :activity
 
   validates :body,    presence: true

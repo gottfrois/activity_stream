@@ -1,5 +1,6 @@
 class User
   include Mongoid::Document
+  # include Mongo::Voter
 
   devise :database_authenticatable, :registerable, :rememberable
 

@@ -1,13 +1,15 @@
+WORK IN PROGRESS ! Not Yet Released
+
 == Welcome to Activity Stream demo application
 
 You will find here a Rails Demo Application using MongoDB. The purpose
 was for me to build an efficient mongo schema for a classic news feed
-like facebook one.
+like Facebook one.
 In order to load quickly thousands of activities, I needed a strong and
 easy way to store these in Mongo. I'm using MongoID as an ORM.
 
 Fill free to clone and to try it out.
-(or you can go here for a live demo link:http://activity_stream.heroku.com)
+(or you can go here for a live demo link: coming, sorry ;) )
 
 == Functionalities
 

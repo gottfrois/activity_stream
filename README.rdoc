@@ -9,7 +9,7 @@ In order to load quickly thousands of activities, I needed a strong and
 easy way to store these in Mongo. I'm using MongoID as an ORM.
 
 Fill free to clone and to try it out.
-(or you can go here for a live demo link: coming, sorry ;) )
+(or you can go here for a live demo link: http://activity-stream.herokuapp.com/ )
 
 == Functionalities
 

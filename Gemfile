@@ -21,12 +21,12 @@ group :development, :test do
 end
 
 group :test do
-  gem "faker", "~> 1.0.1"
   gem "database_cleaner", "~> 0.7.2"
 end
 
 gem 'jquery-rails'
 gem 'nifty-generators', group: :development
+gem "faker", "~> 1.0.1"
 gem 'gravatar_image_tag'
 gem 'devise'
 # gem 'voteable_mongo'

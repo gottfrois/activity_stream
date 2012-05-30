@@ -6,6 +6,8 @@
 
   <div id="object">Object: <%= collection_select :subject, :subject_id, User.all, :id, :name %></div>
 
+  <div id="verb">Random ? <%= select_tag :random, options_for_select([false, true]) %><i>Will generate many random activities with random number of comments</i></div>
+
   <%= f.submit :create, :class => 'btn btn-success' %>
 
 <% end %>

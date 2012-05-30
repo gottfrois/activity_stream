@@ -1,3 +1,5 @@
+require 'faker'
+
 class ActivitiesController < ApplicationController
   before_filter :authenticate_user!, except: :index
 
@@ -14,14 +16,25 @@ class ActivitiesController < ApplicationController
   end
 
   def create
-    @activity = Activity.new(params[:activity])
-    @activity.actor   = User.find(params[:actor][:actor_id])
-    @activity.subject = User.find(params[:subject][:subject_id])
-    if @activity.save!
-      redirect_to root_path, success: "Activity created!"
+    if params[:random] == "true"
+      rand(200).times do
+        activity = Activity.new(params[:activity])
+        activity.actor   = User.all.entries[rand(User.count)]
+        activity.subject = User.all.entries[rand(User.count)]
+        rand(100).times do
+          c = activity.comments.build(body: Faker::Lorem.sentence)
+          c.author = User.all.entries[rand(User.count)]
+          c.save!
+        end
+        activity.save!
+      end
     else
-      render :new
+      @activity = Activity.new(params[:activity])
+      @activity.actor   = User.find(params[:actor][:actor_id])
+      @activity.subject = User.find(params[:subject][:subject_id])
+      render :new unless @activity.save!
     end
+    redirect_to root_path, success: "Activity created!"
   end
 
   def delete

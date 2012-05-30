@@ -2,7 +2,7 @@
 
   <div id="actor">Actor: <%= collection_select :actor, :actor_id, User.all, :id, :name %></div>
 
-  <div id="verb">Verb: <%= f.text_field :verb, :placeholder => "Verb" %></div>
+  <div id="verb">Verb: <%= f.select :verb, ['connected'] %></div>
 
   <div id="object">Object: <%= collection_select :subject, :subject_id, User.all, :id, :name %></div>
 
